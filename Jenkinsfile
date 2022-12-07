@@ -11,14 +11,14 @@ pipeline {
 
   stages {
       
-    stage('Cleanup Workspace') {
-      steps {
-        cleanWs()
-          batch """
-            echo "Cleaned Up Workspace For Project"
-          """
-      }
-    }
+    // stage('Cleanup Workspace') {
+    //   steps {
+    //     cleanWs()
+    //       batch """
+    //         echo "Cleaned Up Workspace For Project"
+    //       """
+    //   }
+    // }
 
     stage('Code Checkout') {
       steps {
