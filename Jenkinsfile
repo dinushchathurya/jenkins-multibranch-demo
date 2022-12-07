@@ -77,11 +77,19 @@ pipeline {
             }
             steps {
                 sh """
-                    echo "Deploy to Dev"
+                    echo "Deploy to Prod"
                 """
             }
         }
 
     }  
 
+    post {
+        always {
+            echo "Cleaning Up Workspace"
+            cleanWs()
+        }
+    }
+
 }
+
