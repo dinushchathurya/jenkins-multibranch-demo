@@ -14,7 +14,7 @@ pipeline {
     stage('Cleanup Workspace') {
       steps {
         cleanWs()
-          def """
+          batch """
             echo "Cleaned Up Workspace For Project"
           """
       }
@@ -25,14 +25,14 @@ pipeline {
         checkout([
           $class: 'GitSCM', 
           branches: [[name: '*/main']], 
-          userRemoteConfigs: [[url: 'https://github.com/dinudefchathurya/jenkins-multibranch-demo.git']]
+          userRemoteConfigs: [[url: 'https://github.com/dinubatchchathurya/jenkins-multibranch-demo.git']]
         ])
       }
     }
 
     stage('Unit Testing') {
       steps {
-        def """
+        batch """
           echo "Running Unit Tests"
         """
       }
@@ -40,7 +40,7 @@ pipeline {
 
     stage('Code Analysis') {
       steps {
-        def """
+        batch """
           echo "Running Code Analysis"
         """
       }
@@ -51,11 +51,11 @@ pipeline {
           branch 'develop'
       }
       steps {
-        def """
+        batch """
           echo "Building Artifact"
         """
 
-        def """
+        batch """
           echo "Deploying Code"
         """
       }
