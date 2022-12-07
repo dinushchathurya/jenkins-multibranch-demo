@@ -48,7 +48,7 @@ pipeline {
 
         stage('Build Code') {
             when { 
-                anyof {
+                anyOf {
                     branch 'develop'
                     branch 'main'
                 }
